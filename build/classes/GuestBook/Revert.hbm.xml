@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="GuestBook.Revert" table="revert">
+		<id name="id" column="id" type="int">
+			<generator class="native"></generator>
+		</id>
+		<property name="content" type="text" not-null="true">
+			<column name="content"></column>
+		</property>
+		<property name="revertTime">
+			<column name="revertTime"></column>
+		</property>
+		<one-to-one name="message" property-ref="revert"></one-to-one>
+	</class>
+</hibernate-mapping>
